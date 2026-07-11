@@ -190,10 +190,32 @@
     padding:22px 18px;color:#6a5aa0;font-size:14px;font-family:'Inter'}
 
   @media(max-width:640px){
-    .slide{padding:30px 26px}
-    h1{font-size:32px}h2{font-size:24px}
+    body{align-items:flex-start;padding:10px 0}
+    .deck{
+      width:96vw;
+      height:auto;
+      min-height:88vh;
+    }
+    .slide{
+      position:relative;         /* больше не absolute — поток, растёт по контенту */
+      inset:auto;
+      min-height:88vh;
+      padding:26px 20px 88px;    /* нижний отступ под кнопки навигации */
+      overflow-y:auto;           /* прокрутка ВНУТРИ слайда, если контент выше экрана */
+      -webkit-overflow-scrolling:touch;
+    }
+    .slide:not(.active){display:none}
+    h1{font-size:30px}h2{font-size:23px}
+    .lead{font-size:16px}
     .grid2,.grid3{grid-template-columns:1fr}
     .dots{display:none}
+    .demo-row{gap:10px}
+    .nav{position:fixed;bottom:14px;right:14px}   /* кнопки всегда на виду */
+    .progress{position:fixed}
+    .center{justify-content:flex-start}           /* сверху вниз, чтобы не обрезалось */
+    /* горизонтальная прокрутка для широких имитаций Excel */
+    .xl,.xl-grid{max-width:100%}
+    table.mini,.xl-grid{font-size:12px}
   }
 </style>
 </head>
